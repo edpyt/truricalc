@@ -1,5 +1,16 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import "./style.css";
+import PrimeVue from 'primevue/config';
+import Aura from '@primeuix/themes/aura';
 
-createApp(App).mount("#app");
+const app = createApp(App);
+app.use(PrimeVue, {
+  theme: { preset: Aura }
+});
+
+// NOTE: components
+import { Button, InputText } from "primevue";
+app.component('Button', Button);
+app.component('InputText', InputText);
+
+app.mount("#app");

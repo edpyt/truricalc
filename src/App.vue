@@ -22,16 +22,18 @@ const currentMathematicalOperation = ref();
 
 <template>
   <main class="container">
-    <div>
-      <input type="text" />
+    <div class="flex">
+      <InputText type="text" />
 
       <div v-for="idx in 3" :key="idx">
-        <button v-for="idxx in 3" :key="idxx">{{ idxx }}</button>
+        <Button v-for="idxx in 3" :label="idxx" severity="secondary" />
       </div>
 
-      <button v-for="mathOperation in CalculatorMathematicalOperations">
-        {{ mathOperation }}
-      </button>
+      <Button
+        v-for="mathOperation in CalculatorMathematicalOperations"
+        :label="mathOperation"
+        severity="secondary"
+      />
     </div>
     selected operation: {{ currentMathematicalOperation }}
   </main>
